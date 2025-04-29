@@ -17,8 +17,8 @@ public class UserAttemptController {
         this.userAttemptService = userAttemptService;
     }
 
-    @PostMapping("/submit")
-    public UserAttempt submitQuizAttempt(@RequestBody UserAttempt userAttempt) {
-        return userAttemptService.processAndSaveAttempt(userAttempt);
+    @PostMapping("/submit/{uid}")
+    public UserAttempt submitQuizAttempt(@PathVariable String uid ,@RequestBody UserAttempt userAttempt) {
+        return userAttemptService.processAndSaveAttempt(userAttempt ,uid);
     }
 }

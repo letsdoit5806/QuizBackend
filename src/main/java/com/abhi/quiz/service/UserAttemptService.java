@@ -1,9 +1,11 @@
 package com.abhi.quiz.service;
 
 import com.abhi.quiz.model.Question;
+import com.abhi.quiz.model.User;
 import com.abhi.quiz.model.UserAttempt;
 import com.abhi.quiz.repository.QuestionRepository;
 import com.abhi.quiz.repository.UserAttemptRepository;
+import com.abhi.quiz.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,15 +17,18 @@ public class UserAttemptService {
 
     private final UserAttemptRepository userAttemptRepository;
     private final QuestionRepository questionRepository;
+    private final UserRepository userRepository;
 
     @Autowired
-    public UserAttemptService(UserAttemptRepository userAttemptRepository, QuestionRepository questionRepository) {
+    public UserAttemptService(UserAttemptRepository userAttemptRepository, QuestionRepository questionRepository, UserRepository userRepository) {
         this.userAttemptRepository = userAttemptRepository;
         this.questionRepository = questionRepository;
+        this.userRepository = userRepository;
     }
 
-    public UserAttempt processAndSaveAttempt(UserAttempt userAttempt) {
+    public UserAttempt processAndSaveAttempt(UserAttempt userAttempt ,String uid) {
 
+        User user = userRepository.findByUid(uid);
         int correct = 0;
         int incorrect = 0;
 
@@ -48,6 +53,7 @@ public class UserAttemptService {
         }
 
         // Step 3: Fill score
+        userAttempt.setUserId(user.getId());
         userAttempt.setTotalQuestions(userAttempt.getAnswers().size());
         userAttempt.setCorrectAnswers(correct);
         userAttempt.setIncorrectAnswers(incorrect);

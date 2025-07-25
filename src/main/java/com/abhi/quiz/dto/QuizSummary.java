@@ -11,16 +11,11 @@ public class QuizSummary {
 
     // Getters and Setters
 
-    public String getId() {
-        return id;
-    }
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;
     }
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -28,6 +23,7 @@ public class QuizSummary {
     public int getTotalQuestions() {
         return totalQuestions;
     }
+
     public void setTotalQuestions(int totalQuestions) {
         this.totalQuestions = totalQuestions;
     }
@@ -35,6 +31,7 @@ public class QuizSummary {
     public int getTotalMarks() {
         return totalMarks;
     }
+
     public void setTotalMarks(int totalMarks) {
         this.totalMarks = totalMarks;
     }
@@ -42,6 +39,7 @@ public class QuizSummary {
     public String getCategory() {
         return category;
     }
+
     public void setCategory(String category) {
         this.category = category;
     }
@@ -49,7 +47,16 @@ public class QuizSummary {
     public String getDescription() {
         return description;
     }
+
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

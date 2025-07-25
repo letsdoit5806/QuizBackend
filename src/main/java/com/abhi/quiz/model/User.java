@@ -10,9 +10,9 @@ import java.util.Date;
 public class User {
 
     @Id
-    private String id; // MongoDB _id
+    private String id; // MongoDB id
 
-    private String uid; // Firebase UID
+    private String uid; // Firebase uid
     private String email;
     private String name;
     private  Date createdAt ;

@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface UserAttemptRepository extends MongoRepository<UserAttempt, String> {
     List<UserAttempt> findByUserIdAndQuizId(String userId, String quizId);
+
+    List<UserAttempt> findByUserId(String id);
 }
